@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import Loader from "./components/loading";
 import abi from "./utils/wavePortal.json";
 import "./App.css";
 
 export default function App() {
   const [currentAccount, setCurrentAccount] = useState("");
 
-  const contractAddress = "0x9a88140c742c3e5a9d7623f12a45ba2366729f43";
+  const [loading, setLoading] = useState(false);
+  const [mined, setMined] = useState(false);
+
+  const contractAddress = "0x9b9A3Bec4A6Db156c90D8847b1fF5720E9D71B11";
 
   const contractABI = abi.abi;
 
@@ -71,23 +75,20 @@ export default function App() {
           signer
         );
 
-        const count = await wavePortalContract.getTotalWaves();
-        count && console.log(count);
-        // console.log("Retrieved total wave count...", count.toNumber());
+        let count = await wavePortalContract.getTotalWaves();
+        console.log("Retrieved total wave count...", count.toNumber());
 
-        /*
-         * Execute the actual wave from your smart contract
-         */
         const waveTxn = await wavePortalContract.wave();
+        setLoading(true);
         console.log("Mining...", waveTxn.hash);
 
         await waveTxn.wait();
+        setLoading(false);
+        setMined(true);
         console.log("Mined -- ", waveTxn.hash);
 
-        // count = await wavePortalContract.getTotalWaves();
-        // console.log("Retrieved total wave count...", count.toNumber());
-
-
+        count = await wavePortalContract.getTotalWaves();
+        console.log("Retrieved total wave count...", count.toNumber());
       } else {
         console.log("Ethereum object doesn't exist!");
       }
@@ -108,7 +109,7 @@ export default function App() {
         </div>
 
         <div className="bio">
-          I am farza and I worked on self-driving cars so that's pretty cool
+          I am Taro and I worked on self-driving cars so that's pretty cool
           right? Connect your Ethereum wallet and wave at me!
         </div>
 
@@ -122,6 +123,12 @@ export default function App() {
           </button>
         )}
       </div>
+
+      {loading ? (
+        <Loader label="mining..." loading={loading} />
+      ) : mined ? (
+        <Loader label="mined" loading={loading} />
+      ) : null}
     </div>
   );
 }
