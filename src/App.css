@@ -30,5 +30,13 @@
   padding: 8px;
   border: 0;
   border-radius: 5px;
-  
+}
+
+.number {
+  font-size: 1.6rem;
+}
+.number span {
+  color: #f88b25;
+  /* font-size: 2.4rem; */
+  font-weight: 700;
 }

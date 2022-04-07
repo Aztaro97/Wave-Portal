@@ -9,6 +9,7 @@ export default function App() {
 
   const [loading, setLoading] = useState(false);
   const [mined, setMined] = useState(false);
+  const [total, setTotal] = useState(0);
 
   const contractAddress = "0x9b9A3Bec4A6Db156c90D8847b1fF5720E9D71B11";
 
@@ -76,6 +77,7 @@ export default function App() {
         );
 
         let count = await wavePortalContract.getTotalWaves();
+        count && setTotal(count.toNumber())
         console.log("Retrieved total wave count...", count.toNumber());
 
         const waveTxn = await wavePortalContract.wave();
@@ -112,6 +114,10 @@ export default function App() {
           I am Taro and I worked on self-driving cars so that's pretty cool
           right? Connect your Ethereum wallet and wave at me!
         </div>
+
+        <h2 className="number">
+          Total Wave : <span>{total}</span>{" "}
+        </h2>
 
         <button className="waveButton" onClick={wave}>
           Wave at Me
