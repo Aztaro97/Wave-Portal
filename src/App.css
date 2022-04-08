@@ -1,3 +1,8 @@
+.app_container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem 0 4rem;
+}
 .mainContainer {
   display: flex;
   justify-content: center;

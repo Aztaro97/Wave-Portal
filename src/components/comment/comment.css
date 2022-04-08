@@ -1,0 +1,60 @@
+.comment_container {
+    margin: 2rem 0;
+}
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.form textarea {
+    padding: 1rem;
+    border:1px solid #cecece;
+    background: #fff;
+    border-radius: 10px;
+    width: 100% !important;
+    height: 100px;
+    resize: none;
+}
+.form textarea:focus {
+    outline: none;
+}
+.form button {
+    width: 100% ;
+    outline: none;
+    border: none;
+    background: #EFEFEF;
+    padding: 1rem;
+    color: #111;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all .3s ease-in-out;
+}
+.form button:hover {
+    background: #f88b25;
+    color: #fff;
+}
+
+
+.comment {
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.comment_address {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+.comment_date {
+    font-size: .9rem;
+}
+.comment_message {
+    color: #a5a4a4;
+    letter-spacing: 1px;
+    margin: 0;
+}
