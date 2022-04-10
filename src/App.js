@@ -14,9 +14,7 @@ export default function App() {
 
   const contractABI = abi.abi;
 
-  /*
-   * Create a method that gets all waves from your contract
-   */
+  //  Create a method that gets all waves from your contract
   const getAllWaves = async () => {
     try {
       const { ethereum } = window;
