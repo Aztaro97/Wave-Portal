@@ -20,13 +20,17 @@ const main = async () => {
   console.log("Contract deployed to:", waveContract.address);
   // console.log("Contract deployed by:", owner.address);
 
-  let waveCount;
-  waveCount = await waveContract.getTotalWaves();
-  console.log(waveCount.toNumber());
+  // let waveCount;
+  // waveCount = await waveContract.getTotalWaves();
+  // console.log(waveCount.toNumber());
 
-  // Sent wave
-  let waveTxn = await waveContract.wave("Bonjour tout le monde !");
+  // Sent wave 1
+  let waveTxn = await waveContract.wave("This is wave #1");
   await waveTxn.wait();
+
+  // Sent wave 2
+  let waveTxn2 = await waveContract.wave("This is wave #2");
+  await waveTxn2.wait();
 
   // waveTxn = await waveContract.connect(randomPerson).wave("Bonjour Mohammed !");
   // await waveTxn.wait();
