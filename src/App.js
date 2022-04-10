@@ -10,7 +10,7 @@ export default function App() {
 
   const [total, setTotal] = useState(0);
 
-  const contractAddress = "0xD2AbB1294B1cEf86397308ffD66fa263996e10aC";
+  const contractAddress = "0x17cf72Ec8d9313BfD19C99828C5D45c1ffdF43a0";
 
   const contractABI = abi.abi;
 
