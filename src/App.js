@@ -10,7 +10,7 @@ export default function App() {
 
   const [total, setTotal] = useState(0);
 
-  const contractAddress = "0xf91C85F412599b1255054e5ee4cE7e8cC261c9B1";
+  const contractAddress = "0xD2AbB1294B1cEf86397308ffD66fa263996e10aC";
 
   const contractABI = abi.abi;
 
@@ -122,7 +122,8 @@ export default function App() {
           </div>
 
           <div className="bio">
-            I am Taro and I'm fullStack developer , that's pretty cool right? ? Connect your Ethereum wallet and wave at me!
+            I am Taro and I'm fullStack developer , that's pretty cool right? ?
+            Connect your Ethereum wallet and wave at me!
           </div>
 
           <h2 className="number">
@@ -140,11 +141,14 @@ export default function App() {
           )}
         </div>
       </div>
-      <Commenter
-        allWaves={allWaves}
-        setTotal={setTotal}
-        contractAddress={contractAddress}
-      />
+
+      {currentAccount && (
+        <Commenter
+          allWaves={allWaves}
+          setTotal={setTotal}
+          contractAddress={contractAddress}
+        />
+      )}
     </div>
   );
 }

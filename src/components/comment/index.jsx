@@ -13,7 +13,7 @@ const CommenterComponent = ({ allWaves, setTotal, contractAddress }) => {
   const handleWave = async (e) => {
     try {
       e.preventDefault();
-      console.log(contractAddress);
+
       const { ethereum } = window;
 
       if (ethereum) {
