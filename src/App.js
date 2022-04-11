@@ -4,6 +4,7 @@ import Commenter from "./components/comment";
 import abi from "./utils/wavePortal.json";
 import "./App.css";
 
+
 export default function App() {
   const [currentAccount, setCurrentAccount] = useState("");
   const [allWaves, setAllWaves] = useState([]);
