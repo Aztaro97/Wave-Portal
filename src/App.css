@@ -1,7 +1,7 @@
 .app_container {
   max-width: 400px;
   margin: 0 auto;
-  padding: 1rem 0 4rem;
+  padding: 1rem 1rem 4rem;
 }
 .mainContainer {
   display: flex;
