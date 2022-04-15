@@ -30,7 +30,9 @@ const CommenterComponent = ({ allWaves, setTotal, contractAddress }) => {
         console.log("Retrieved total wave count...", count.toNumber());
 
         // const waveTxn = await wavePortalContract.wave();
-        const waveTxn = await wavePortalContract.wave(message);
+        const waveTxn = await wavePortalContract.wave(message, {
+          gasLimit: 300000,
+        });
         setLoading(true);
         console.log("Mining...", waveTxn.hash);
 
